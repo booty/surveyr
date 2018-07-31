@@ -7,7 +7,7 @@ const app = express();
 // app.get creates a route handler for a GET.
 // obv could also be PUT, POST, DELETE, etc
 app.get('/', (req, res) => {
-	res.send({ hi: 'there' });
+	res.send({ hi: 'is anybody there?' });
 });
 
 // When Heroku runs our app, it sets/injects environment variables
