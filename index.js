@@ -10,4 +10,7 @@ app.get('/', (req, res) => {
 	res.send({ hi: 'there' });
 });
 
-app.listen(5000);
+// When Heroku runs our app, it sets/injects environment variables
+// Will (may) be different on every run
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
