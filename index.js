@@ -1,6 +1,11 @@
 // commonJS - node does not have support for ES2015 modeules i.e. import express from 'express';
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+require('./models/User'); // needs to come before passport, since we reference User in passport.js
 require('./services/passport');
+
+mongoose.connect(keys.mongoURI);
 
 // could have multiple apps, but usually not
 const app = express();
