@@ -13,4 +13,9 @@ module.exports = app => {
 	// Google strategy will read the info sent by Google and is
 	// smart enough to know that it's a callback
 	app.get('/auth/google/callback', passport.authenticate('google'));
+
+	app.get('/api/current_user', (req, res) => {
+		console.log('req.user is', req.user);
+		res.send(req.user);
+	});
 };
