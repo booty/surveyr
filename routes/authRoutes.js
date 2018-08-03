@@ -14,8 +14,13 @@ module.exports = app => {
 	// smart enough to know that it's a callback
 	app.get('/auth/google/callback', passport.authenticate('google'));
 
+	app.get('/api/logout', (req, res) => {
+		req.logout(); // attached to req. object by passport
+		res.send('ok, signed out');
+	});
+
 	app.get('/api/current_user', (req, res) => {
 		console.log('req.user is', req.user);
-		res.send(req.user);
+		res.send(req.session);
 	});
 };
